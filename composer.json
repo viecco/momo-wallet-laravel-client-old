@@ -1,0 +1,22 @@
+{
+    "name": "viec_co/momo-laravel-client",
+    "description": "SDK for interaction with MoMo eWallet",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "pear/crypt_gpg": "^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Momo\\": "src/Momo"
+        }
+    },
+    "authors": [
+        {
+            "name": "TungNS",
+            "email": "nstung@gmail.com"
+        }
+    ]
+}
