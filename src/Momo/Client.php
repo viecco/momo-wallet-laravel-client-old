@@ -13,7 +13,7 @@ class Client {
 
   public function __construct(array $config = null, CryptoInterface $cryptoService) {
     $defaultConfig = require_once 'Config.php';
-    $this->_config = array_merge_recursive($defaultConfig, $config);
+    $this->_config = array_replace_recursive($defaultConfig, $config);
 
     if (empty($this->_config['partner_code'])) {
       throw new Exception('partner_code cannot be null');
@@ -84,7 +84,7 @@ class Client {
   }
 
   /**
-   * Check how much money remaining in our wallet 
+   * Check how much money remaining in our wallet
    */
   public function getBalance() : int {
     $requestData = [
@@ -100,20 +100,21 @@ class Client {
   /**
    * Transfer money from our wallet to customer's wallet
    * @param  [type] $telephone   customer wallet
+   * @param  [type] $personalId  CMND
    * @param  [type] $amount      [description]
    * @param  [type] $description [description]
    * @return [type]              [description]
    */
-  public function transfer($telephone, $amount, $description) {
-    $requestData = [
-      "requestId" => $this->_generateRequestId(),
-      "password" => $this->_config['wallet_password'],
-      "created" => "2019-01-04T14:19:30+07:00",
-      "walletId" => $telephone,
-      "amount" => $amount,
-      "amount" => $amount,
-      "description" => $description
-    ];
+   public function transfer($telephone, $personalId, $amount, $description) {
+     $requestData = [
+       "requestId" => $this->_generateRequestId(),
+       "password" => $this->_config['wallet_password'],
+       "created" => date('c'), //"2019-01-04T14:19:30+07:00",
+       "walletId" => $telephone,
+       'personalId' => $personalId,
+       "amount" => $amount,
+       "description" => $description
+     ];
 
     return $this->_post('/api/payment/pay', $requestData);
   }

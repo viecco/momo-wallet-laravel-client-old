@@ -16,7 +16,9 @@ class LaravelServiceProvider extends ServiceProvider
    */
     public function boot()
     {
-        //
+      $this->publishes([
+          __DIR__.'/../../../publishable/config/momo.php' => config_path('momo.php')
+      ], 'config');
     }
 
     /**

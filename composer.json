@@ -1,6 +1,6 @@
 {
-    "name": "viec_co/momo-laravel-client",
-    "description": "SDK for interaction with MoMo eWallet",
+    "name": "viecco/momo-wallet-laravel-client",
+    "description": "Laravel SDK for interaction with MoMo eWallet",
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "pear/crypt_gpg": "^1.6"
