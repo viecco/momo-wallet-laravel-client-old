@@ -1,4 +1,8 @@
-# momo-laravel-client
+# momo-wallet-laravel-client
+
+## Requirements
+
+- PHP gnupg extension: http://php.net/manual/en/gnupg.installation.php
 
 ## Installing
 
