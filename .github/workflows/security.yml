@@ -1,0 +1,14 @@
+# Đặt bởi scripts/security_rollout.py của viecco/engineering; sửa ở đó, không sửa ở đây (SEC-06, SEC-11).
+# Gọi workflow secret-scan dùng chung, pin theo commit của viecco/engineering; script mở PR mới khi đổi commit đó.
+name: security
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    uses: viecco/engineering/.github/workflows/secret-scan.yml@8322be85bf60e38c02f5c5dd7d64fc95e4c02502 # main ngày 2026-11-18
